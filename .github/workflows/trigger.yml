@@ -12,10 +12,21 @@ on:
         required: false
 
 jobs:
-  deploy:
-    runs-on: ubuntu-latest
-    steps:
+    test:
+     runs-on: ubuntu-latest
+     steps:
+      - name: check file preset or not
+        run: |
+          locate ascii_script.sh
+          echo " files is preset"
+
+    deploy:
+     needs : test
+     runs-on: ubuntu-latest
+     steps:
       - name: Show selected inputs
         run: |
+          sleep 30s
           echo "Deploying to environment: ${{ github.event.inputs.environment }}"
           echo "Version: ${{ github.event.inputs.version }}"
+          
