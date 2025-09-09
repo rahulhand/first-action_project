@@ -21,7 +21,7 @@ jobs:
 
   test:
     runs-on: ubuntu-latest
-#    needs: build   # test will run only if build is successful
+    needs: build   # test will run only if build is successful
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -31,7 +31,7 @@ jobs:
 
   deploy:
     runs-on: ubuntu-latest
- #   needs: test   # deploy will run only if test is successful
+    needs: test   # deploy will run only if test is successful
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
