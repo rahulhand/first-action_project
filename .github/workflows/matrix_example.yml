@@ -1,0 +1,21 @@
+name: Docker Matrix Example
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  docker-matrix:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+        image: [hello-world, alpine]
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Run Docker container
+        run: |
+          echo "Running Docker image: ${{ matrix.image }} on OS: ${{ matrix.os }}"
+          docker run ${{ matrix.image }}
