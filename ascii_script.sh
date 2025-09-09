@@ -5,7 +5,7 @@
 if ! command -v cowsay &> /dev/null
 then
     echo "cowsay is not installed, installing cowsay!"
-    shudo apt install cowsay
+    sudo apt install cowsay
 fi
 
 # Generate dragon artwork
