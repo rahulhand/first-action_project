@@ -1,9 +1,9 @@
-name: Docker Matrix Example
+name: Docker Matrix Example with execude
 
 on:
   push:
-  workflow_dispatch:
- 
+
+    branches: [ "main" ]
 
 jobs:
   docker-matrix:
