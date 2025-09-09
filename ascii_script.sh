@@ -9,4 +9,5 @@ then
 fi
 
 # Generate dragon artwork
-cowsay -f dragon "Fear the mighty dragon!"
+cowsay -f dragon "Fear the mighty dragon!" >> dragon.txt
+cat dragon.txt

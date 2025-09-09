@@ -1,0 +1,40 @@
+# This is a basic workflow to help you get started with Actions
+
+name: multi job example
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: run  script
+        run: |
+          chmod +x ascii_script.sh
+          ./ascii_script.sh
+
+
+  test:
+    runs-on: ubuntu-latest
+#    needs: build   # test will run only if build is successful
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: verify file dragon.txt
+        run: cat dragon.txt
+
+  deploy:
+    runs-on: ubuntu-latest
+ #   needs: test   # deploy will run only if test is successful
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Deploy application
+        run: echo "🚀 Deploying application..."
