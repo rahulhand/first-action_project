@@ -17,7 +17,12 @@ jobs:
         run: |
           chmod +x ascii_script.sh
           ./ascii_script.sh
-
+      
+      - name : upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+           name : dragon.txt
+           path: dragon.txt
 
   test:
     runs-on: ubuntu-latest
@@ -25,6 +30,13 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+      
+      - name : download artifact
+        uses: actions/download-artifact@v4
+        with:
+           name : dragon.txt
+           pattern: dragon.txt
+
 
       - name: verify file dragon.txt
         run: cat dragon.txt
