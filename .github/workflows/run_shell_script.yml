@@ -36,5 +36,7 @@ jobs:
       
       # Execute shell script
       - name: execute shell script
-        run : ./ascii_script.sh
+        run : |
+          chmod +x ascii_script.sh
+          ./ascii_script.sh
         
