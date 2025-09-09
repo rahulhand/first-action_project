@@ -17,6 +17,7 @@ jobs:
      steps:
       - name: check file preset or not
         run: |
+          sudo apt install locate
           locate ascii_script.sh
           echo " files is preset"
 
