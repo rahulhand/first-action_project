@@ -14,9 +14,9 @@ on:
 
 #Concurrency makes sure that only one run of a workflow (or job group) runs at a time.
 #If a new run starts, the old one can either continue or be cancelled.        
-#concurrency:
-  #group: deploy-${{ github.event.inputs.environment }}   # group by environment
-  #cancel-in-progress: true   # cancel previous run if a new one starts
+concurrency:
+  group: deploy-${{ github.event.inputs.environment }}   # group by environment
+  cancel-in-progress: true   # cancel previous run if a new one starts
 
 jobs:
     test:
