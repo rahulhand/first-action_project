@@ -10,4 +10,5 @@ fi
 
 # Generate dragon artwork
 cowsay -f dragon "Fear the mighty dragon!" >> dragon.txt
+echo "echo the output"
 cat dragon.txt
