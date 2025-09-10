@@ -2,8 +2,6 @@ name: Docker Matrix Example with execude
 on:
   push:
 
-    branches: [ "main" ]
-
 jobs:
   docker-matrix:
     strategy:
